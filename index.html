@@ -1,30 +1,67 @@
 
 <!DOCTYPE html>
 <html>
-  <head>
-      <meta charset="utf-8">
-      <title>HTML Course</title>
+
+<head>
+    <meta charset="utf-8">
+    <title>HTML Course</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
     <style>
-    p {
-
-    }
     </style>
+    <script>
+        function helloworld(){
+            alert('Hello World!');
+        }
+    </script>
+</head>
 
-  </head>
-  <body>
-<div>
-<h1> HTML Course</h1>
-      <h2> HTML Course</h2>
-</div>
-      <h3> HTML Course</h3>
-      <h4> HTML Course</h4>
-      <h5> HTML Course</h5>
-      <h6> HTML Course</h6>
-      <h1> HTML Course</h1>
-      
-      
-      <p> Learn HTML and how to use it </p>
-      <p> Course Introduction:</p>
-      Learn HTML and how to use it <br />Course Introduction:
-  </body>
+<body>
+    <nav>
+        Go To <a href="https://www.google.com" target="_blank">Google</a>
+        <a href="#anchor">Link Text</a>
+    </nav>
+
+    <div id='container'>
+        <h1>  Ultimate HTML Course</h1>
+        <p><a href="index.html"><img src="http://lorempixel.com/400/200/food/" alt="placeholder image"/></a></p>
+    <p style="color:blue; border:black solid 1px; background:grey;">Learn HTML and how to use it.</p>
+        <p>Course will introduce.</p>
+        
+        <div id="contactform">
+        <form action="index.html" method="post">
+            <fieldset>
+            Name: <input type="text" size="30" name="username" placeholder="Eneter Your Name"/><br />
+            Email: <input type="email" size="30" name="useremail"/><br />
+            </fieldset>
+            <fieldset>
+            <input type="submit" value='Click to Submit'>
+            </fieldset>
+            
+        </form>
+        </div>
+        
+        
+        <div class="lesson">
+            <h2>Lesson 1: Basics of HTML</h2>
+            <ul style="list-style-type:square">
+            <li>Learn HTML and how to use it.</li>
+            <li>Course will introduce.</li>
+            </ul>
+            <button type="button" onClick="helloworld()">Show Alert</button>
+        </div>
+        
+        
+
+        <div class="lesson">
+            <h2>Lesson 2: <span>HTML Coding How to</span></h2>
+            <ul>
+            <li>Start Coding</li>
+            <li>What are Element</li>
+            </ul>
+        </div>
+        
+    </div> <!-- container  -->
+   
+</body>
+
 </html>

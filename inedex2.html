@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>HTML Course</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    
+    <script>
+        function helloworld() {
+            alert('More info about the course.');
+        }
+    </script>
+</head>
+
+<body>
+    <nav> Go to <a href="http://www.google.com" target="_blank">Google</a> <a href="index.html">page 1</a> <a href="index2.html">page 2</a> <a href="index3.html">page 3</a>
+    </nav>
+    <div id="container">
+        <h1>Ultimate HTML Course</h1>
+        <p>
+            <a href="inedex2.html"><img src="http://lorempixel.com/400/200/technics/" alt="placeholder
+image">
+            </a>
+        </p>
+        <p>Learn HTML and how to use it.</p>
+        <p>Course will introduce.</p>
+        <div id="contactform">
+            <form action="index2.html" method="post">
+                <fieldset>
+                    Name:
+                    <input type="text" size="30" name="username" placeholder="enter your name" />
+                    <br> Email:
+                    <input type="email" size="30" name="useremail" />
+                </fieldset>
+                <fieldset>
+                    <input type="submit" value="sign up">
+                </fieldset>
+            </form>
+        </div>
+        <div class="lesson">
+            <h2>Lesson 1 : Basics of HTML</h2>
+            <ul>
+                <li>Learn HTML and how to use it. </li>
+                <li>Course will introduce. </li>
+            </ul>
+            <button type="button" onClick="helloworld()">Find out More</button>
+        </div>
+        <!--must add images-->
+        <div class="lesson">
+            <h2>Lesson 2 : <span>HTML Coding How to</span> </h2> 
+            <ul>
+                <li>Start coding</li>
+                <li>What are elements</li>
+            </ul>
+            <button type="button" onClick="helloworld()">Find out More</button>
+        </div>
+    </div>
+</body>
+
+</html>

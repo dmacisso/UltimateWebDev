@@ -1,0 +1,22 @@
+
+<style> .lesson {
+	background-color: black;
+}
+
+#container {
+	border: #EEEEEE solid 2px;
+}
+
+h1 {
+	color: #FF0004;
+}
+
+body {
+/*
+    background-color: bisque;
+	background-image: url("musicicon.jpg");
+*/
+    background: bisque url("musicicon.jpg") no-repeat bottom fixed;
+}
+
+</style>
