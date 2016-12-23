@@ -6,7 +6,8 @@ var john = {
     job: 'teacher'  
 };
 
-//Function Contructor
+
+//Function Constructor
 
 var Person = function(name, yearOfBirth, job) {
     this.name = name;
@@ -21,16 +22,6 @@ Person.prototype.calculateAge = function() {
 
 Person.prototype.lastName = 'Smith';
 
-
-var Rectangle = function(name, length, width) {
-    this.name = name;
-    this.length = length;
-    this.width = width;
-}
-
-Rectangle.prototype.area = function(){
-    console.log( this.name + ' is  ' + this.length * this.width + ' square units')
-}
 
 
             
@@ -49,6 +40,90 @@ mark.calculateAge();
 console.log(john.lastName);
 console.log(jane.lastName);
 console.log(mark.lastName);
+
+*/
+var ans = [];
+var Question = function(question, answers, correct) {
+    this.question = question;
+    this.answers = answers;
+    this.correct = answers[correct -1];  
+}
+
+
+
+//console.log('Holo World!');
+
+var question1 = new Question("Name the capital of Maine", ['1-Portland','2-Belfast','3-Augusta'], 3);
+
+var question2 = new Question("Name the largest state in the union", ['1-Alaska','2-Texas','3-California'], 1);
+
+var question3 = new Question("Name the capial of Brazil", ['1-Rio Di Janero','2-Brazilia','3-Sao Paulo'], 2);
+
+var question4 = new Question("Name Abrahams oldest son", ['1-Jacob','2-Ishmael','3-Issac'], 2);
+
+var randomQuestion = Math.ceil(Math.random() * 4);
+
+switch(randomQuestion) {
+    case 1:
+        console.log(question1.question);
+        console.log(question1.answers[0]);
+        console.log(question1.answers[1]);
+        console.log(question1.answers[2]);
+        correctAns = question1.correct;
+        break;
+    case 2:
+        console.log(question2.question);
+        console.log(question2.answers[0]);
+        console.log(question2.answers[1]);
+        console.log(question2.answers[2]);
+        correctAns = question2.correct;
+        
+        break;
+    case 3:
+        console.log(question3.question);
+         console.log(question3.answers[0]);
+        console.log(question3.answers[1]);
+        console.log(question3.answers[2]);
+        correctAns = question3.correct;
+        break;
+    case 4:
+        console.log(question4.question);
+       console.log(question4.answers[0]);
+        console.log(question4.answers[1]);
+        console.log(question4.answers[2]);
+        correctAns = question4.correct;
+}
+
+var choice = prompt("Please enter the number corresponing to the correct answer");
+
+console.log(" You selected " + choice);
+console.log("The correct answer is " + correctAns);
+
+if (choice == correctAns) {
+    
+    alert(choice + " is correct!");
+    
+} else {
+    
+    alert("No! Dumb Ass the correct answer is " + correctAns +"!" );
+}
+    
+    
+
+/*
+
+var Rectangle = function(name, length, width) {
+    this.name = name;
+    this.length = length;
+    this.width = width;
+}
+
+Rectangle.prototype.area = function(){
+    console.log( this.name + ' is  ' + this.length * this.width + ' square units')
+}
+
+
+
 
 
 var area1 = new Rectangle('area1',10, 25);
@@ -191,7 +266,7 @@ console.log(rates);
 //Lecture Functions Returning Functions
 
 
-
+/*
 function interviewQuestion(job) 
   {
     if (job === 'designer') {
@@ -233,11 +308,11 @@ interviewQuestion('designer')('Guido');
 
 interviewQuestion('teacher')('Guido');
 
-*/
+
 //Lecture IIFE immediately envoked function expressions
 
 
-/*
+
 
 function game() 
 {
@@ -246,7 +321,6 @@ function game()
 }
 
 game();
-*/
 
 (function ()
     {
@@ -266,6 +340,139 @@ game();
 
 
 
+////////////////////////////////////////////////
+// Lecture: Closures
+
+function retirement(retirementAge) {
+    var a = " years until retirement.";
+    return function(yearOfBirth) {
+        var age = 2016 - yearOfBirth;
+        console.log((retirementAge - age) + a );
+    }
+}
+
+
+
+
+
+var retirementUS = retirement(66);
+var retirementGermany = retirement(65);
+var retirementIceland = retirement(67);
+
+
+retirementUS(1945);
+retirementGermany(1945);
+retirementIceland(1945);
+
+//retirement(67)(1990);
+
+
+
+
+
+function interviewQuestion(job) 
+  {
+    if (job === 'designer') {
+        return function(name) {
+            console.log(name + ', can you please explaine what UX design is?');   
+        } 
+    } else if (job === 'teacher') {
+        return function(name) {
+            console.log(name + ', What subject do you teach?');
+            console.log(', How long have you been teaching?');
+        } 
+        
+    } else {
+        return function (name) {
+           console.log('Hello ' + name + ', Che lavoro fai?');
+        }
+    }
+}
+
+interviewQuestion('designer')('Guido');
+
+interviewQuestion('teacher')('Guido');
+
+interviewQuestion()('Guido');
+
+var job = interviewQuestion('teacher');
+job("John");
+
+
+
+
+function interviewQuestion(job) {
+    return function(name) {
+        if (job === 'designer') {
+        console.log(name + ', can you please explain what UX design is?');   
+        
+    } else if (job === 'teacher') {
+            console.log(name + ', What subject do you teach?');
+            console.log(', How long have you been teaching?');
+            
+    } else {
+           console.log('Hello ' + name + ', Che lavoro fai?');
+        }
+    }
+}
+
+
+
+interviewQuestion('designer')('Guido');
+
+interviewQuestion('teacher')('Guido');
+
+
+
+interviewQuestion()('Guido');
+
+var job = interviewQuestion('teacher');
+
+
+
+//Lecture: Bind, call, apply
+// allows to change the this variable
+
+
+var john = 
+    {
+        name: 'John',
+        age: 26,
+        job: 'teacher',
+        presentation: function(style, timeOfDay) {
+            if ( style === 'formal') {
+                console.log('Good ' + timeOfDay + ', Ladies and Gentlemen! I\'m ' + this.name + ' I\'m a ' + this.job + ' and I\'m ' + this.age + ' years old.');
+            } else if (style === 'friendly') {
+                console.log('Hey! What\'s up? I\'m ' + this.name + ' I\'m a ' + this.job + ' and I\'m ' + this.age + ' years old. Have a nice ' + timeOfDay + '.');
+            }
+        }
+        
+    }
+
+var emily = {
+    name: 'Emily',
+    age: 35,
+    job: 'designer'
+}
+
+
+john.presentation('formal','morning');
+
+john.presentation.call(emily, 'friendly','evening');
+
+
+// john.presentation.apply(emily, ['friendly','evening']);
+
+var johnFriendly = john.presentation.bind(john, 'friendly');
+
+
+johnFriendly('afternoon');
+johnFriendly('night');
+
+
+var emilyFormal = john.presentation.bind(emily, 'formal');
+
+emilyFormal("afternoon");
 
 
 
@@ -274,42 +481,56 @@ game();
 
 
 
+var years = [1990, 1965, 1945, 2005, 1998];
+
+
+function arrayCalc(arr, fn) 
+{
+    var arrRes = [];
+    for (var i =0; i < arr.length; i++) 
+    {
+        arrRes.push(fn(arr[i]));
+    }
+    
+    return arrRes;
+}
+
+
+function calculateAge(el) 
+{
+    return 2016-el;
+}
+
+
+function isFullAge(limit, el) 
+{
+    return el >= limit;
+}
+
+function maxHeartRate(el)
+{
+    if (el >= 18 && el <= 81)
+    {
+    return Math.round(206 - (0.67 * el));  
+    } else {
+    return -1;
+    }
+}
 
 
 
 
 
+var ages = arrayCalc(years, calculateAge);
+
+var fullJapan = arrayCalc(ages, isFullAge.bind(this, 20));
+
+console.log(ages);
+console.log(fullJapan);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+*/
 
 
 
