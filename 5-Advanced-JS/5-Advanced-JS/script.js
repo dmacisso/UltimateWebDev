@@ -42,6 +42,7 @@ console.log(jane.lastName);
 console.log(mark.lastName);
 
 */
+var correctAns, correctChoice;
 var ans = [];
 var Question = function(question, answers, correct) {
     this.question = question;
@@ -70,6 +71,8 @@ switch(randomQuestion) {
         console.log(question1.answers[1]);
         console.log(question1.answers[2]);
         correctAns = question1.correct;
+        correctChoice = 3;
+        
         break;
     case 2:
         console.log(question2.question);
@@ -77,6 +80,7 @@ switch(randomQuestion) {
         console.log(question2.answers[1]);
         console.log(question2.answers[2]);
         correctAns = question2.correct;
+         correctChoice = 1;
         
         break;
     case 3:
@@ -85,12 +89,14 @@ switch(randomQuestion) {
         console.log(question3.answers[1]);
         console.log(question3.answers[2]);
         correctAns = question3.correct;
+         correctChoice = 2;
         break;
     case 4:
         console.log(question4.question);
        console.log(question4.answers[0]);
         console.log(question4.answers[1]);
         console.log(question4.answers[2]);
+         correctChoice = 2;
         correctAns = question4.correct;
 }
 
@@ -99,9 +105,9 @@ var choice = prompt("Please enter the number corresponing to the correct answer"
 console.log(" You selected " + choice);
 console.log("The correct answer is " + correctAns);
 
-if (choice == correctAns) {
+if (choice == correctChoice) {
     
-    alert(choice + " is correct!");
+    alert("Correct! The answer is " + correctAns);
     
 } else {
     
