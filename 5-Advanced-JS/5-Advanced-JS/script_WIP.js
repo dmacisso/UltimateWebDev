@@ -41,8 +41,82 @@ console.log(john.lastName);
 console.log(jane.lastName);
 console.log(mark.lastName);
 
+*/
+var correctAns, correctChoice;
+var ans = [];
+var Question = function(question, answers, correct) {
+    this.question = question;
+    this.answers = answers;
+    this.correct = answers[correct -1];  
+}
 
 
+
+//console.log('Holo World!');
+
+var question1 = new Question("Name the capital of Maine", ['1-Portland','2-Belfast','3-Augusta'], 3);
+
+var question2 = new Question("Name the largest state in the union", ['1-Alaska','2-Texas','3-California'], 1);
+
+var question3 = new Question("Name the capial of Brazil", ['1-Rio Di Janero','2-Brazilia','3-Sao Paulo'], 2);
+
+var question4 = new Question("Name Abrahams oldest son", ['1-Jacob','2-Ishmael','3-Issac'], 2);
+
+var randomQuestion = Math.ceil(Math.random() * 4);
+
+switch(randomQuestion) {
+    case 1:
+        console.log(question1.question);
+        console.log(question1.answers[0]);
+        console.log(question1.answers[1]);
+        console.log(question1.answers[2]);
+        correctAns = question1.correct;
+        correctChoice = 3;
+        
+        break;
+    case 2:
+        console.log(question2.question);
+        console.log(question2.answers[0]);
+        console.log(question2.answers[1]);
+        console.log(question2.answers[2]);
+        correctAns = question2.correct;
+         correctChoice = 1;
+        
+        break;
+    case 3:
+        console.log(question3.question);
+         console.log(question3.answers[0]);
+        console.log(question3.answers[1]);
+        console.log(question3.answers[2]);
+        correctAns = question3.correct;
+         correctChoice = 2;
+        break;
+    case 4:
+        console.log(question4.question);
+       console.log(question4.answers[0]);
+        console.log(question4.answers[1]);
+        console.log(question4.answers[2]);
+         correctChoice = 2;
+        correctAns = question4.correct;
+}
+
+var choice = prompt("Please enter the number corresponing to the correct answer");
+
+console.log(" You selected " + choice);
+console.log("The correct answer is " + correctAns);
+
+if (choice == correctChoice) {
+    
+    alert("Correct! The answer is " + correctAns);
+    
+} else {
+    
+    alert("No! Dumb Ass the correct answer is " + correctAns +"!" );
+}
+    
+    
+
+/*
 
 var Rectangle = function(name, length, width) {
     this.name = name;
@@ -461,207 +535,9 @@ console.log(ages);
 console.log(fullJapan);
 
 
-//  Begin Challange
-var correctAns, correctChoice;
-//var ans = [];
-var score = 0;
-var Question = function(question, answers, correct) {
-    this.question = question;
-    this.answers = answers;
-    this.correct = correct;  
-}
-
-
-var question1 = new Question("Name the capital of Maine", ['1-Portland','2-Belfast','3-Augusta'], '3-Augusta');
-
-var question2 = new Question("Name the largest state in the union", ['1-Alaska','2-Texas','3-California'], '1-Alaska');
-
-var question3 = new Question("Name the capial of Brazil", ['1-Rio Di Janero','2-Brazilia','3-Sao Paulo'], '2-Brazilia');
-
-var question4 = new Question("Name Abrahams oldest son", ['1-Jacob','2-Ishmael','3-Issac'], '2-Ishmael');
-
-var inplay = true;
-while (inplay) {
-var randomQuestion = Math.ceil(Math.random() * 4);
-var correctAns, correctChoice ;
-
-switch(randomQuestion) {
-    case 1:
-        console.log(question1.question);
-        console.log(question1.answers[0]);
-        console.log(question1.answers[1]);
-        console.log(question1.answers[2]);
-        //console.log(question1.correct);
-        //question = question1;
-        correctAns = question1.correct;
-        correctChoice = 3;
-        break;
-    case 2:
-        console.log(question2.question);
-        console.log(question2.answers[0]);
-        console.log(question2.answers[1]);
-        console.log(question2.answers[2]);
-        //console.log(question2.correct);
-        //question = question2;
-        correctAns = question2.correct;
-        correctChoice = 1;
-        
-        break;
-    case 3:
-        console.log(question3.question);
-         console.log(question3.answers[0]);
-        console.log(question3.answers[1]);
-        console.log(question3.answers[2]);
-        //console.log(question3.answers);
-        //question = question3;
-        correctAns = question3.correct;
-        correctChoice = 2;
-        break;
-    case 4:
-        console.log(question4.question);
-       console.log(question4.answers[0]);
-        console.log(question4.answers[1]);
-        console.log(question4.answers[2]);
-        //console.log(question4.correct);
-        //question = question4;
-        correctAns = question4.correct;
-        correctChoice = 2; 
-    
-}
-
-
-var choice = prompt("Please enter the number corresponding to the correct answer");
-
-//console.log(" You selected " + choice);
-//console.log("The correct choice is " + correctChoice);
-//console.log("The correct answer is " + correctAns);
-/*
-if (choice >= 4) { 
-    console.log("Game Over");
-    inplay = false;
-};
-
-if (choice == correctChoice) {
-    score++;    
-    console.log('\n');
-    console.log(correctAns + " is correct!");
-    console.log("Your current score is " + score);
-    console.log('\n');
-    
-} else if (choice < 4) {
-    console.log('\n');
-    console.log("No! Dumb Ass. The correct answer is " + correctAns +"!" );
-    console.log("Your score remains " + score);
-    console.log('\n');
-}
-    else{
-        
-    console.log("Game Over");
-    inplay = false;
-}
-    
-};
-
-// END Challange
-
-
 
 */
 
-(function()
-{
-    function Question(question, answers, correct) {
-    this.question = question;
-    this.answers = answers;
-    this.correct = correct;  
-}
-
-
-Question.prototype.displayQuestion = function() {
-    console.log(this.question);
-    
-    for (var i = 0; i < this.answers.length; i++ ){
-        console.log(i + ': ' + this.answers[i]);
-        
-    }
-}
-
-Question.prototype.checkAnswer = function(ans, callback) {
-    var sc;
-    
-    if (ans === this.correct) {
-        console.log('Very good, ' + this.answers[this.correct]  + ' is the correct answer');
-        sc = callback(true);
-    } else {
-        console.log('The correct answer is ' + this.answers[this.correct] + ' Try again Dummy');
-        
-        sc = callback(false);
-        
-    }
-    
-    this.displayScore(sc);
-    
-}
-
-Question.prototype.displayScore = function(score) {
-    console.log('Your current score is ' + score );
-    console.log('-----------------------');
-}
-
-
-
-var question1 = new Question("Name the capital of Maine", ['Portland','Belfast','Augusta'], 2);
-
-var question2 = new Question("Name the largest state in the union", ['Alaska','Texas','California'], 0);
-
-var question3 = new Question("Name the capial of Brazil", ['Rio Di Janero','Brazilia','Sao Paulo'], 1);
-
-var question4 = new Question("Name Abrahams oldest son", ['Jacob','Ishmael','Issac'], 1);
-    
-
-
-
-     function score() {
-        var sc = 0;
-        return function(correct) {
-            if (correct) {
-                sc++;
-            }
-            return sc;
-        }
-    }
-    
-    
-    var keepScore = score();
-  
-    function nextQuestion() {
-    var questions = [question1, question2, question3, question4];
-    
-    
-    
-
-var n = Math.floor(Math.random() * questions.length);
-
-
-questions[n].displayQuestion();
-
-var answer = prompt('Please select the correct answer..');
-
-    
-   if (answer !== 'exit') {
-       
-    questions[n].checkAnswer(parseInt(answer), keepScore);
-    console.log('\n');
-    nextQuestion();
-       
-   }
-    
-    
-}    
- console.log('\n');
-nextQuestion();
-
-})();
 
 
 
